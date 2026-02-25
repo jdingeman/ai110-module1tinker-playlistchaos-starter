@@ -192,23 +192,28 @@ def profile_sidebar():
     profile["name"] = st.sidebar.text_input(
         "Profile name",
         value=str(profile.get("name", "")),
+        key="profile_name",
     )
 
     col1, col2 = st.sidebar.columns(2)
     with col1:
-        profile["hype_min_energy"] = st.sidebar.slider(
+        val = profile["hype_min_energy"] = st.sidebar.slider(
             "Hype min energy",
             min_value=1,
             max_value=10,
             value=int(profile.get("hype_min_energy", 7)),
+            key="hype_min_energy",
         )
+        profile["hype_min_energy"] = val
     with col2:
-        profile["chill_max_energy"] = st.sidebar.slider(
+        val = profile["chill_max_energy"] = st.sidebar.slider(
             "Chill max energy",
             min_value=1,
             max_value=10,
             value=int(profile.get("chill_max_energy", 3)),
+            key="chill_max_energy",
         )
+        profile["chill_max_energy"] = val
 
     profile["favorite_genre"] = st.sidebar.selectbox(
         "Favorite genre",
